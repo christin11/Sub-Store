@@ -2,22 +2,15 @@ FROM node:22-alpine
 
 WORKDIR /app
 
-# 安装 pnpm
 RUN npm install -g pnpm
 
-# 复制真正的后端目录
-COPY backend ./backend
+COPY . .
 
 WORKDIR /app/backend
 
-# 安装依赖
-RUN pnpm install
-
-# 构建
+RUN pnpm install --frozen-lockfile
 RUN pnpm build
 
-# 暴露端口
 EXPOSE 3000
 
-# 启动
 CMD ["node", "dist/index.js"]
