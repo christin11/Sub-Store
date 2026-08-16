@@ -5,7 +5,7 @@ WORKDIR /app
 # 安装 pnpm
 RUN npm install -g pnpm
 
-# 复制 backend
+# 复制真正的后端目录
 COPY backend ./backend
 
 WORKDIR /app/backend
