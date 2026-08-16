@@ -1,11 +1,11 @@
-FROM node:18-alpine
+FROM node:22-alpine
 
 WORKDIR /app
 
 # 安装 pnpm
 RUN npm install -g pnpm
 
-# 复制文件
+# 复制 backend
 COPY backend ./backend
 
 WORKDIR /app/backend
